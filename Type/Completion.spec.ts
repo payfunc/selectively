@@ -281,4 +281,22 @@ describe("boolean complete test", () => {
 			{ addon: "false", cursor: 14, description: undefined, full: "boolean:!false" },
 		])
 	})
+	it("dadadadadadadadadadadadadada", () => {
+		const string = JSON.stringify({
+			fontFamily: '"Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif',
+			header: { background: "86,86,86", color: "255,255,255" },
+			body: { background: "227,227,227", color: "0,0,0" },
+			success: { background: "81,196,115", color: "255,255,255" },
+		})
+		expect(string).toEqual(
+			'{"fontFamily":"\\"Roboto\\", \\"Helvetica Neue\\", Helvetica, Arial, sans-serif","header":{"background":"86,86,86","color":"255,255,255"},"body":{"background":"227,227,227","color":"0,0,0"},"success":{"background":"81,196,115","color":"255,255,255"}}'
+		)
+		const object = JSON.parse(string)
+		expect(object).toEqual({
+			fontFamily: '"Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif',
+			header: { background: "86,86,86", color: "255,255,255" },
+			body: { background: "227,227,227", color: "0,0,0" },
+			success: { background: "81,196,115", color: "255,255,255" },
+		})
+	})
 })

@@ -118,4 +118,12 @@ describe("parse.group", () => {
 		expect(parsed.is({ authorization: { amount: 230, verification: "verified", recurring: "failing" } })).toEqual(false)
 		expect(parsed.is({ authorization: { amount: 230, verification: "verified", recurring: "failing" } })).toEqual(false)
 	})
+
+	it("authorization.has...", () => {
+		const rule = "authorization:has(currency)"
+		const parsed = selectively.parse(rule)
+		const failingValue = { authorization: { amount: 2 } }
+		expect(parsed.is(failingValue)).toBeFalsy()
+		expect(parsed.is(value)).toBeTruthy()
+	})
 })
